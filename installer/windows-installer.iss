@@ -10,7 +10,7 @@ AppPublisher=Die Reise zum Mittelpunkt der Erde
 DefaultDirName={autopf}\Die Reise zum Mittelpunkt der Erde
 DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
-OutputDir=.
+OutputDir=..\dist\installer
 OutputBaseFilename=Die-Reise-zum-Mittelpunkt-der-Erde-2.3.1-Setup
 Compression=lzma2
 SolidCompression=yes
@@ -27,7 +27,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "Desktop-Verknüpfung erstellen"; GroupDescription: "Zusätzliche Symbole:"; Flags: unchecked
 
 [Files]
-Source: "dist\Die-Reise-zum-Mittelpunkt-der-Erde\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\dist\Die-Reise-zum-Mittelpunkt-der-Erde\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{app}"
