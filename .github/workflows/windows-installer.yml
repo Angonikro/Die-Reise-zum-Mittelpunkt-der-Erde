@@ -1,0 +1,52 @@
+name: Build Windows Installer
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build-installer:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Python for build only
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install application build dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt pyinstaller
+
+      - name: Build self-contained Windows application
+        run: >-
+          python -m PyInstaller --noconfirm --clean --windowed --onedir
+          --name "Die-Reise-zum-Mittelpunkt-der-Erde"
+          --add-data "assets;assets" src\game.py
+
+      - name: Add version file
+        shell: pwsh
+        run: Copy-Item VERSION dist/Die-Reise-zum-Mittelpunkt-der-Erde/VERSION
+
+      - name: Install Inno Setup
+        shell: pwsh
+        run: choco install innosetup --yes --no-progress
+
+      - name: Build Windows installer
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path dist/installer | Out-Null
+          & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" /O"$PWD\dist\installer" installer\windows-installer.iss
+          if ($LASTEXITCODE -ne 0) { throw "Inno Setup failed with exit code $LASTEXITCODE" }
+
+      - name: Upload Windows installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: Die-Reise-zum-Mittelpunkt-der-Erde-2.3.1-Windows-Installer
+          path: dist/installer/Die-Reise-zum-Mittelpunkt-der-Erde-2.3.1-Setup.exe
+          if-no-files-found: error
