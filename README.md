@@ -4,6 +4,10 @@
 
 Ein grafisches Point-and-Click-Adventure, frei inspiriert vom Roman *Voyage au centre de la Terre* (1864) von Jules Verne. Erkunde Orte, sprich mit Figuren, sammle Gegenstände und löse Rätsel auf der Reise von Hamburg nach Island und durch die unterirdische Welt.
 
+![Die-Reise-zum-Mittelpunkt-der-Erde](drzmde.png)
+
+[Github Seite](https://github.com/Angonikro/Die-Reise-zum-Mittelpunkt-der-Erde/)
+
 ## Inhalt
 
 - Vorspann und illustriertes Hauptmenü
@@ -102,3 +106,5 @@ Die Veröffentlichung enthält den vollständigen Quellcode sowie die benötigte
 ## Lizenz und Rechte
 
 Diese ZIP enthält keine Open-Source-Lizenz. Die Veröffentlichung auf GitHub allein gewährt keine zusätzlichen Rechte zur Weiterverwendung, Änderung oder Weiterverbreitung. *Die Reise zum Mittelpunkt der Erde* ist ein eigenständiges Fan-/Abenteuerprojekt, frei inspiriert von Jules Vernes gemeinfreiem Roman; einzelne enthaltene Bibliotheken und Medien unterliegen ihren jeweiligen Lizenz- und Rechtebedingungen.
+
+73 de DO2QG Andreas
